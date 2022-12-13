@@ -14,8 +14,12 @@ public class HomePage {
 
     public void acceptCookies() {
         cookieAcceptBtn.click();
+    }
+
+    public void cookiePanelNotVisible() {
         cookieAcceptBtn.shouldNot(visible);
     }
+
 
     public void isSetToHungarian() {
         switchLangFromHuBtn.should(Condition.matchText("English"));
