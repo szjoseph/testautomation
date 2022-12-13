@@ -1,4 +1,6 @@
 Feature: The user should be able to reject or accept the cookies
+  As a user,
+  I want to be able to manage cookies.
 
   Background:
     Given open main page
