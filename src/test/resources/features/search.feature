@@ -6,6 +6,7 @@ Feature: Product Search
   Background:
     Given I am logged in
     And open main page
+    And language is set to "hungarian"
 
   Rule: The search function should be available on the homepage
 
