@@ -9,6 +9,5 @@ Feature: The user should be able to reject or accept the cookies
   Rule: Allow to reject cookies
 
     Scenario: Allow to reject cookies
-      Given the "Összes Cookie elfogadás" button is visible
-      When clicking on "Összes Cookie elfogadás"
+      When clicking on "accept cookies"
       Then the cookie panel closes.
