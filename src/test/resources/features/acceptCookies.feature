@@ -6,7 +6,7 @@ Feature: The user should be able to reject or accept the cookies
     Given open main page
     And language is set to "magyar"
 
-  Rule: Allow to reject cookies
+  Rule: Allow to reject or accept cookies
 
     Scenario: Allow to reject cookies
       When clicking on "accept cookies"
