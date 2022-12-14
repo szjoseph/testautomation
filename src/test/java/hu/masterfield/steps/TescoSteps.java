@@ -104,4 +104,16 @@ public class TescoSteps {
         SearchResultPage searchResultPage = new SearchResultPage();
         searchResultPage.searchResult();
     }
+
+    @And("click on product")
+    public void clickOnProduct() {
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage();
+        productDetailsPage.clickProduct();
+    }
+
+    @Then("details visible")
+    public void detailsVisible() {
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage();
+        productDetailsPage.validateDetailsPage();
+    }
 }
