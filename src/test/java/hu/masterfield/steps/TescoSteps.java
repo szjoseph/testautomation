@@ -25,14 +25,13 @@ public class TescoSteps {
     }
 
     @And("language is set to {string}")
-    public void languageIsSetTo(String arg0) {
+    public void languageIsSetTo() {
         HomePage homePage = new HomePage();
         homePage.isSetToHungarian();
-
     }
 
     @When("clicking on {string}")
-    public void clickingOn(String arg0) {
+    public void clickingOn() {
         HomePage homePage = new HomePage();
         homePage.acceptCookies();
     }
@@ -62,8 +61,7 @@ public class TescoSteps {
     @When("the user fills out the <email>, <password>, <password confirmation>")
     public void theUserFillsOutTheEmailPasswordPasswordConfirmation() {
         RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.setEmailPass();
-        assertEquals("1", registrationPage.stageNumber.getText());
+        registrationPage.setRegStage1();
     }
 
     @Then("the user should be able to access their new account")
