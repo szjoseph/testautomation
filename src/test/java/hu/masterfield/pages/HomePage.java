@@ -11,7 +11,7 @@ public class HomePage {
     SelenideElement cookieAcceptBtn = $(byText("Minden Cookie elfogadása"));
     //    SelenideElement cookieRejectBtn = $(byText("Minden Cookie elutasítása"));
     SelenideElement switchLangFromHuBtn = $(byText("English"));
-    SelenideElement loginBtn = $(byText("Bejelentkezés"));
+    public SelenideElement loginBtn = $(byText("Bejelentkezés"));
     SelenideElement registrationBtn = $(byText("Regisztráció"));
 
     public void acceptCookies() {
