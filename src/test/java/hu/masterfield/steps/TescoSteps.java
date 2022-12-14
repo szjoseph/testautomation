@@ -53,7 +53,7 @@ public class TescoSteps {
 
 
     @And("click on submit button")
-    public void clickOnSubmitButton() throws InterruptedException {
+    public void clickOnSubmitButton() {
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.clickSubmit();
     }
@@ -71,7 +71,7 @@ public class TescoSteps {
     }
 
     @And("selects <county>, <municipality>, <postal code>, <street>, <house number>, <address name>")
-    public void selectsCountyMunicipalityPostalCodeStreetHouseNumberAddressName() throws InterruptedException {
+    public void selectsCountyMunicipalityPostalCodeStreetHouseNumberAddressName() {
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.setRegStage2();
     }
