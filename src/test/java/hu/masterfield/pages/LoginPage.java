@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
 
-
     public void login(String email, String password) {
         SelenideElement emailField = $("#email");
         SelenideElement passwordField = $("#password");

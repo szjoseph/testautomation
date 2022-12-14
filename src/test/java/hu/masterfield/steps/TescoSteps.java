@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -80,4 +81,15 @@ public class TescoSteps {
         assertTrue($(byText("Kijelentkezés")).isDisplayed());
     }
 
+    @When("the user clicks on the log out button")
+    public void theUserClicksOnTheLogOutButton() {
+        LogOutPage logOutPage = new LogOutPage();
+        logOutPage.logout();
+    }
+
+    @Then("the user should be logged out of the website")
+    public void theUserShouldBeLoggedOutOfTheWebsite() {
+        HomePage homePage = new HomePage();
+        homePage.loginBtn.shouldBe(visible);
+    }
 }
