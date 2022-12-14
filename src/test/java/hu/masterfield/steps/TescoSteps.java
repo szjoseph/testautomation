@@ -2,15 +2,18 @@ package hu.masterfield.steps;
 
 import com.codeborne.selenide.Configuration;
 import hu.masterfield.pages.HomePage;
-import hu.masterfield.pages.RegistrationPage;
+import hu.masterfield.pages.RegistrationPage1;
+import hu.masterfield.pages.RegistrationPage2;
+import hu.masterfield.pages.RegistrationPage3;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class TescoSteps {
@@ -46,51 +49,18 @@ public class TescoSteps {
     public void theUserIsOnTheSignUpPage() {
         HomePage homePage = new HomePage();
         homePage.clickRegistrationBtn();
-
-        RegistrationPage registrationPage = new RegistrationPage();
-        assertEquals("1", registrationPage.stageNumber.getText());
     }
 
-
-    @And("click on submit button")
-    public void clickOnSubmitButton() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.clickSubmit();
+    @When("the user registers")
+    public void theUserRegisters() {
+        RegistrationPage1 registrationPage1 = new RegistrationPage1();
+        RegistrationPage2 registrationPage2 = registrationPage1.setRegStage1();
+        RegistrationPage3 registrationPage3 = registrationPage2.setRegStage2();
+        registrationPage3.setRegStage3();
     }
 
-    @When("the user fills out the <email>, <password>, <password confirmation>")
-    public void theUserFillsOutTheEmailPasswordPasswordConfirmation() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.setRegStage1();
-    }
-
-    @Then("the user should be able to access their new account")
-    public void theUserShouldBeAbleToAccessTheirNewAccount() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.validateRegSuccess();
-    }
-
-    @And("selects <county>, <municipality>, <postal code>, <street>, <house number>, <address name>")
-    public void selectsCountyMunicipalityPostalCodeStreetHouseNumberAddressName() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.setRegStage2();
-    }
-
-    @And("enter <first name>, <last name>, <phone number>")
-    public void enterFirstNameLastNamePhoneNumber() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.setRegStage3();
-    }
-
-    @And("accept registration consent")
-    public void acceptRegistrationConsent() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.regConstCheckBox();
-    }
-
-    @And("click on <registration submit> button")
-    public void clickOnRegistrationSubmitButton() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.finalizeReg();
+    @Then("the user will have a profile")
+    public void theUserWillHaveAProfile() {
+        assertTrue($("#utility-header-orders-link").isDisplayed());
     }
 }

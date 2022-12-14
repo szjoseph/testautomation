@@ -5,7 +5,6 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
-import static org.junit.Assert.assertTrue;
 
 public class RegistrationPage3 {
     public void setRegStage3() {
@@ -23,6 +22,5 @@ public class RegistrationPage3 {
 
         consentCheckBox.click();
         regFinalizeBtn.click();
-        assertTrue($("#utility-header-orders-link").isDisplayed());
     }
 }
