@@ -29,4 +29,6 @@ public class HomePage {
 
     public void clickRegistrationBtn() {registrationBtn.click();}
 
+    public void openLoginPage() {loginBtn.click();}
+
 }

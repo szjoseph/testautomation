@@ -1,16 +1,14 @@
 package hu.masterfield.steps;
 
 import com.codeborne.selenide.Configuration;
-import hu.masterfield.pages.HomePage;
-import hu.masterfield.pages.RegistrationPage1;
-import hu.masterfield.pages.RegistrationPage2;
-import hu.masterfield.pages.RegistrationPage3;
+import hu.masterfield.pages.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertTrue;
@@ -63,4 +61,23 @@ public class TescoSteps {
     public void theUserWillHaveAProfile() {
         assertTrue($("#utility-header-orders-link").isDisplayed());
     }
+
+    @Given("I am on the login page")
+    public void iAmOnTheLoginPage() {
+        HomePage homePage = new HomePage();
+        homePage.openLoginPage();
+    }
+
+    @When("I log in with my {string} and {string}")
+    public void iLogInWithMyAnd(String email, String password) {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(email, password);
+    }
+
+
+    @Then("I should be logged in to my account")
+    public void iShouldBeLoggedInToMyAccount() {
+        assertTrue($(byText("Kijelentkezés")).isDisplayed());
+    }
+
 }
