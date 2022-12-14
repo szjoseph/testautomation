@@ -3,80 +3,28 @@ Feature: Sign up
   I want to be able to create an account
   So that I can access the different features of the website
 
-  Rule: Sign up must be secure
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the user's personal information and data should be securely stored and protected
+  Rule: Registration can't proceed without filling out the necessary fields with valid data
+    Rule: Registration must require password confirmation
 
-  Rule: Sign up must be easy
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the process should be simple and easy to complete
-
-    Scenario: Successful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with valid information and submits it
+    Scenario: Successful registration
+      Given open main page
+      And the user is on the sign up page
+      When the user fills out the <email>, <password>, <password confirmation>
+      And click on submit button
+      And selects <county>, <municipality>, <postal code>, <street>, <house number>, <address name>
+      And click on submit button
+      And enter <first name>, <last name>, <phone number>
+      And accept registration consent
+      And click on <registration submit> button
       Then the user should be able to access their new account
 
-    Scenario: Unsuccessful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with invalid information and submits it
-      Then the user should receive an error message and be unable to access their new account
+#    Scenario: Email already in use
+#      Given I am on the registration page
+#      When I enter an email that is already in use
+#      And I click the register button
+#      Then I should see an error message indicating that the email is already in use
 
-
-
-
-
-
-Feature: Sign up
-  As a user
-  I want to be able to create an account
-  So that I can access the different features of the website
-
-  Rule: Sign up must be verified
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the user's email address should be verified before the account is created
-
-  Rule: Sign up must be personalized
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the user's account should be personalized with their name and other relevant information
-
-    Scenario: Successful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with valid information and submits it
-      Then the user should be able to access their new account
-
-    Scenario: Unsuccessful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with invalid information and submits it
-      Then the user should receive an error message and be unable to access their new account
-
-
-
-
-Feature: Sign up
-  As a user
-  I want to be able to create an account
-  So that I can access the different features of the website
-
-  Rule: Sign up must require email verification
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the user should be required to verify their email address before their account is created
-
-  Rule: Sign up must require password confirmation
-    Given the user is on the sign up page
-      When the user fills out the sign up form and submits it
-      Then the user should be required to confirm their password before their account is created
-
-    Scenario: Successful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with valid information and submits it
-      Then the user should be able to access their new account
-
-    Scenario: Unsuccessful sign up
-      Given the user is on the sign up page
-      When the user fills out the sign up form with invalid information and submits it
-      Then the user should receive an error message and be unable to access their new account
+#    Scenario: Unsuccessful sign up
+#      Given the user is on the sign up page
+#      When the user fills out the sign up form with invalid information and submits it
+#      Then the user should receive an error message
