@@ -92,4 +92,16 @@ public class TescoSteps {
         HomePage homePage = new HomePage();
         homePage.loginBtn.shouldBe(visible);
     }
+
+    @When("user searches for an {string}")
+    public void userSearchesForAn(String item) {
+        SearchPage searchPage = new SearchPage();
+        searchPage.searchItem(item);
+    }
+
+    @Then("search reults are shown")
+    public void searchReultsAreShown() {
+        SearchResultPage searchResultPage = new SearchResultPage();
+        searchResultPage.searchResult();
+    }
 }
