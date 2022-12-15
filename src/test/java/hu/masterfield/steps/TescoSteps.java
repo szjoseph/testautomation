@@ -1,11 +1,15 @@
 package hu.masterfield.steps;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import hu.masterfield.pages.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -17,22 +21,32 @@ import static org.junit.Assert.assertTrue;
 
 public class TescoSteps {
 
-    @Given("open main page")
-    public void openMainPage() {
+
+    @Before
+    public void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-blink-features=AutomationControlled");
         Configuration.browserCapabilities = options;
+    }
 
+    @After
+    public void cleanup() {
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        driver.quit();
+    }
+
+    @Given("open main page")
+    public void openMainPage() {
         open("https://bevasarlas.tesco.hu/groceries/hu-HU");
     }
 
-    @And("language is set to {string}")
+    @And("language is set to magyar")
     public void languageIsSetTo() {
         HomePage homePage = new HomePage();
         homePage.isSetToHungarian();
     }
 
-    @When("clicking on {string}")
+    @When("clicking on accept cookies")
     public void clickingOn() {
         HomePage homePage = new HomePage();
         homePage.acceptCookies();
