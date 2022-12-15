@@ -27,7 +27,7 @@ public class TescoSteps {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-blink-features=AutomationControlled");
         Configuration.browserCapabilities = options;
-        //   options.setHeadless(true);
+        options.setHeadless(true);
         Configuration.browserSize = "1920x1080";
     }
 
