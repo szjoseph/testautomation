@@ -1,3 +1,5 @@
+@TC09
+@Registration
 Feature: Sign up
   As a user
   I want to be able to create an account

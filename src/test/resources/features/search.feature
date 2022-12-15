@@ -1,3 +1,5 @@
+@TC10
+@Search
 Feature: Product Search
   As a user,
   I want to be able to search for products on the webshop from the homepage.

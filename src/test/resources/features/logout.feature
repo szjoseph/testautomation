@@ -1,3 +1,4 @@
+@TC06
 Feature: Log out of website
 
   As a user, I want to be able to log out of the website

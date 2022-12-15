@@ -1,3 +1,4 @@
+@TC03
 Feature: Manage cookies
   As a user,
   I want to be able to manage cookies.
