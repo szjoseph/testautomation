@@ -2,10 +2,8 @@ Feature: View Product Details
 
   As a user, I want to be able to view detailed information about a product.
 
-  Scenario: View Product Details
-
   Rule: The product details page must contain extra information.
-    Scenario Outline:
+    Scenario Outline: View Product Details
       Given open main page
       When user searches for an "<item>"
       Then search reults are shown
@@ -15,8 +13,3 @@ Feature: View Product Details
       Examples:
         | item            |
         | hamburger szósz |
-
-
-
-
-
