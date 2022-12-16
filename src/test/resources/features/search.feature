@@ -12,7 +12,7 @@ Feature: Product Search
       And I am on the login page
       And I log in with my "<email>" and "<password>"
       When user searches for an "<item>"
-      Then search reults are shown
+      Then search results are shown
 
       Examples:
         | email                 | password  | item            |
