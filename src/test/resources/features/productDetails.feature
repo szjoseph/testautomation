@@ -7,7 +7,7 @@ Feature: View Product Details
     Scenario Outline: View Product Details
       Given open main page
       When user searches for an "<item>"
-      Then search reults are shown
+      Then search results are shown
       And click on product
       Then details visible
 
