@@ -25,10 +25,11 @@ public class TescoSteps {
     @Before
     public void setup() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        Configuration.browserCapabilities = options;
+        options.addArguments("user-agent=Type user agent here", "--disable-blink-features=AutomationControlled");
         options.setHeadless(true);
-        Configuration.browserSize = "1920x1080";
+ //       options.addArguments("--disable-blink-features=AutomationControlled");
+ //       WebDriverManager.chromedriver().setup();
+        Configuration.browserCapabilities = options;
     }
 
     @After
@@ -115,8 +116,8 @@ public class TescoSteps {
         searchPage.searchItem(item);
     }
 
-    @Then("search reults are shown")
-    public void searchReultsAreShown() {
+    @Then("search results are shown")
+    public void searchResultsAreShown() {
         SearchResultPage searchResultPage = new SearchResultPage();
         searchResultPage.searchResult();
     }
