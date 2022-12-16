@@ -11,7 +11,8 @@ public class LoginPage {
         SelenideElement emailField = $("#email");
         SelenideElement passwordField = $("#password");
 
-        emailField.sendKeys(email);
+        emailField.setValue(email);
+        //emailField.sendKeys(email);
         passwordField.sendKeys(password);
         passwordField.sendKeys(Keys.ENTER);
     }
