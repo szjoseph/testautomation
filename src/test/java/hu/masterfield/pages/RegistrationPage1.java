@@ -26,10 +26,6 @@ public class RegistrationPage1 {
         inputPassConf.setValue("Nagyonbiztonsagosjelszo1");
         regSubBtn.click();
         return new RegistrationPage2();
-
-
-
-
     }
 
 }
